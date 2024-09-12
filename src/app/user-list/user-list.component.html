@@ -1,0 +1,54 @@
+<br>
+<br>
+<!-- <h1>user List</h1> -->
+
+<div class="container">
+
+    <div >
+        <form (ngSubmit)="goTouser()" >
+            <div class="form-group col-md-6 inline ">
+                
+                <input  [(ngModel)]="EnteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by ID">
+                <button class="btn btn-secondary " type="submit">Search</button>
+            </div>
+        </form>
+
+    </div>
+    <br>
+    <br>
+<div>
+<table style="margin-bottom: 50px;" class=" table table-responsive table-striped  border-dark">
+
+    <thead class="table-dark ">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>age</th>
+            <th>Actions</th>
+        </tr>
+
+    </thead> 
+
+
+    <tbody>
+        <tr *ngFor = "let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.fname}}</td>
+            <td>{{user.lname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.age}}</td>
+            <td>
+                <button (click) = "updateuser(user.id)" class = "btn  btn-secondary btn-sm"> Update</button>
+                <button (click) = "deleteuser(user.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>
+                <button (click) = "detailsOfuser(user.id)" class = "btn btn-success btn-sm " style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>
+<br><br><br><br>
+</div>
+
